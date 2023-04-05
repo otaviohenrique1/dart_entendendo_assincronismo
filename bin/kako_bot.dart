@@ -7,6 +7,17 @@ void main(List<String> arguments) async {
   var a = true;
   String usuario = '';
 
+  var myStream = BotClock().kakoBotStream(1, 10);
+  var subscriber = myStream.listen(
+    (event) {
+      print("                      KakoBot está ativo há: $event segundos");
+    },
+    onDone: () {
+      print("KakoBot está sendo finalizado! Faça a última pergunta.");
+      a = false;
+    },
+  );
+
   print('-- Iniciando o KakoBOT, aguarde..--');
 
   await BotClock().clock(2);
@@ -21,7 +32,8 @@ void main(List<String> arguments) async {
         usuario.contains('Adeus') ||
         usuario.contains('adeus')) {
       a = false;
-      print(kakoBot + ' Até a proxima!!');
+      print('$kakoBot Até a proxima!!');
+      // print(kakoBot + ' Até a proxima!!');
     } else if (TimeQuestions(usuario).isThisTime()) {
       // verificar antes, assim não fazemos toda a função sem precisar.
       TimeQuestions(usuario).timeQuestion();
@@ -31,9 +43,12 @@ void main(List<String> arguments) async {
     } */
     else {
       await BotClock().clock(2);
-      print(kakoBot +
-          ' Não fui treinado para responder a essa pergunta \n Desculpe :( ');
-      print(kakoBot + ' Você pode fazer outra pergunta ou dizer Adeus');
+      print(
+          '$kakoBot Não fui treinado para responder a essa pergunta \n Desculpe :( ');
+      // print(kakoBot +
+      //     ' Não fui treinado para responder a essa pergunta \n Desculpe :( ');
+      print('$kakoBot Você pode fazer outra pergunta ou dizer Adeus');
+      // print(kakoBot + ' Você pode fazer outra pergunta ou dizer Adeus');
     }
   } while (a);
 
