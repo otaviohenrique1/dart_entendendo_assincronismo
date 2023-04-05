@@ -1,4 +1,4 @@
-void aula1() {
+void aula1Future() {
   // ignore: unused_local_variable
   Future myFuture = Future(() {
     print("Going back to the future");
@@ -7,7 +7,7 @@ void aula1() {
   print("Done with main");
 }
 
-void aula2() {
+void aula2Future() {
   // ignore: unused_local_variable
   Future myFuture = Future(() {
     print("Going back to the future");
@@ -17,7 +17,7 @@ void aula2() {
   print("Done with main");
 }
 
-void aula3() {
+void aula3Future() {
   Future.delayed(Duration(seconds: 5));
   print("");
 
@@ -29,7 +29,7 @@ void aula3() {
   myFutureFunction().then((value) => print("My function value is: $value"));
 }
 
-void aula4() {
+void aula4Future() {
   // Forma assincrona
   Future<int> myFutureFunction() async {
     await Future.delayed(Duration(seconds: 5));
@@ -55,7 +55,7 @@ void aula4() {
   });
 }
 
-void aula5() {
+void aula5Future() {
   Future<int> myFutureErrorFunction(int a, int b) async {
     try {
       if (a > b) {
@@ -84,5 +84,5 @@ void aula5() {
 */
 
 void main(List<String> args) {
-  aula5();
+  aula5Future();
 }
