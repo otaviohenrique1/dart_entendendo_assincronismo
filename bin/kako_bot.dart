@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'questions/good_manners.dart';
 import 'questions/time_questions.dart';
 import 'timing/waiting_time.dart';
 
@@ -38,10 +39,11 @@ void main(List<String> arguments) async {
       // verificar antes, assim não fazemos toda a função sem precisar.
       TimeQuestions(usuario).timeQuestion();
       await BotClock().clock(2);
-    } /* else if (false) {
+    } else if (GoodManners(usuario).isThisManners()) {
+      GoodManners(usuario).goodManners();
+    } else if (false) {
       //Basta adicionar novas perguntas aqui!
-    } */
-    else {
+    } else {
       await BotClock().clock(2);
       print(
           '$kakoBot Não fui treinado para responder a essa pergunta \n Desculpe :( ');
